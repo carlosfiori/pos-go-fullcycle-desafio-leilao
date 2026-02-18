@@ -40,16 +40,14 @@ func (repo *AuctionRepository) FindAuctions(
 	productName string) ([]auction_entity.Auction, *internal_error.InternalError) {
 	filter := bson.M{}
 
-	if status != 0 {
-		filter["status"] = status
-	}
+	filter["status"] = status
 
 	if category != "" {
 		filter["category"] = category
 	}
 
 	if productName != "" {
-		filter["productName"] = primitive.Regex{Pattern: productName, Options: "i"}
+		filter["product_name"] = primitive.Regex{Pattern: productName, Options: "i"}
 	}
 
 	cursor, err := repo.Collection.Find(ctx, filter)
