@@ -1,0 +1,26 @@
+@baseUrl = http://localhost:8080
+@auctionId = 03bb0e19-e92f-4b1a-afd9-8b5e85bac177
+@userId = 40694d6b-9f33-4188-834c-106607fa2d88
+
+### Criar lance
+POST {{baseUrl}}/bid
+Content-Type: application/json
+
+{
+    "user_id": "{{userId}}",
+    "auction_id": "{{auctionId}}",
+    "amount": 1500.00
+}
+
+### Criar segundo lance (valor maior)
+POST {{baseUrl}}/bid
+Content-Type: application/json
+
+{
+    "user_id": "{{userId}}",
+    "auction_id": "{{auctionId}}",
+    "amount": 956000.00
+}
+
+### Listar lances de um leilão
+GET {{baseUrl}}/bid/{{auctionId}}

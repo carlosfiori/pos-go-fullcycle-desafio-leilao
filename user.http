@@ -1,0 +1,5 @@
+@baseUrl = http://localhost:8080
+@userId = 40694d6b-9f33-4188-834c-106607fa2d88
+
+### Buscar usuário por ID
+GET {{baseUrl}}/user/{{userId}}

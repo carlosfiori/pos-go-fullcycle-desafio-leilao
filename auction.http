@@ -1,0 +1,53 @@
+@baseUrl = http://localhost:8080
+@auctionId = 03bb0e19-e92f-4b1a-afd9-8b5e85bac177
+
+### Criar leilão (Novo)
+POST {{baseUrl}}/auction
+Content-Type: application/json
+
+{
+    "product_name": "iPhone 15",
+    "category": "electronics",
+    "description": "iPhone 15 Pro Max 256GB novo na caixa",
+    "condition": 0
+}
+
+### Criar leilão (Usado)
+POST {{baseUrl}}/auction
+Content-Type: application/json
+
+{
+    "product_name": "MacBook Pro 2023",
+    "category": "electronics",
+    "description": "MacBook Pro M2 usado em bom estado",
+    "condition": 1
+}
+
+### Criar leilão (Recondicionado)
+POST {{baseUrl}}/auction
+Content-Type: application/json
+
+{
+    "product_name": "Samsung Galaxy S24",
+    "category": "electronics",
+    "description": "Samsung Galaxy S24 Ultra recondicionado",
+    "condition": 2
+}
+
+### Listar leilões ativos (status=0)
+GET {{baseUrl}}/auction?status=0&category=&productName=
+
+### Listar leilões completados (status=1)
+GET {{baseUrl}}/auction?status=1&category=&productName=
+
+### Listar leilões por categoria
+GET {{baseUrl}}/auction?status=1&category=electronics&productName=
+
+### Listar leilões por nome do produto
+GET {{baseUrl}}/auction?status=1&category=&productName=iPhone
+
+### Buscar leilão por ID
+GET {{baseUrl}}/auction/{{auctionId}}
+
+### Buscar lance vencedor de um leilão
+GET {{baseUrl}}/auction/winner/{{auctionId}}

@@ -16,8 +16,9 @@ services:
     container_name: mongodb
     ports:
       - "27017:27017"
-    env_file:
-      - cmd/auction/.env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
     volumes:
       - mongo-data:/data/db
     networks:
